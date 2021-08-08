@@ -40,6 +40,7 @@ html {
     padding-top: 25px;
   }
   .card-title {
+    margin-left: 10px;
     font-weight: 500;
     margin-bottom: 3px;
     word-break: break-all;
