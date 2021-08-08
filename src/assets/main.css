@@ -33,9 +33,11 @@ html {
     width: 100%;
     object-fit: cover;
   }
-  
+  .card-image >img{
+    padding: 50px;
+  }
   .card-top {
-    padding: 25px;
+    padding-top: 25px;
   }
   .card-title {
     font-weight: 500;
