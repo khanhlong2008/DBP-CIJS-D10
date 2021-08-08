@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import { Component } from 'react';
-
-class App extends Component{
-  render(){
-    return(
-      
-    )
-  }
+import {SignIn} from './components/SignIn'
+import {SignUp} from './components/SignUp'
+function App() {
+  return (
+    <div >
+      <SignUp></SignUp>
+      {/* <SignIn></SignIn> */}
+    </div>
+  );
 }
 
 export default App;
