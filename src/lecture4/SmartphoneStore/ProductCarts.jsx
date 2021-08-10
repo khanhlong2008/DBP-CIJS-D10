@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-undef */
 
 import { Component } from "react";
@@ -11,7 +12,7 @@ class ProductCarts extends Component {
   }
 
   render() {
-    const { img, name, price } = this.props.productCarts;
+    const { img, name, price ,id} = this.props.productCarts;
     var { Quantity } = this.state;
     return (
       <div>
@@ -25,6 +26,7 @@ class ProductCarts extends Component {
                 <th scope="col">Số lượng</th>
                 <th scope="col">Đơn giá</th>
                 <th scope="col">Thành tiền</th>
+                <th scope="col">Hủy bỏ</th>
               </tr>
             </thead>
             <tbody>
@@ -38,8 +40,8 @@ class ProductCarts extends Component {
                 <td className="row">
                   <input
                     type="button"
-                    value="+"                  
-                    className="col"
+                    value="+"
+                    className="col btn-primary"
                     onClick={() =>
                       this.updateQuantity(
                         this.props.productCarts,
@@ -47,13 +49,11 @@ class ProductCarts extends Component {
                       )
                     }
                   />
-                  <p  className="col text-center">
-                    {this.state.Quantity}
-                  </p>
+                  <p className="col text-center">{this.state.Quantity}</p>
                   <input
                     type="button"
                     value="-"
-                    className="col"
+                    className="col btn-primary"
                     onClick={() =>
                       this.updateQuantity(
                         this.props.productCarts,
@@ -63,9 +63,15 @@ class ProductCarts extends Component {
                   />
                 </td>
 
-                <td >{price}</td>
-                <td >
-                  {this.showSubtotal(price, this.state.Quantity)} $
+                <td>{price}</td>
+                <td>{this.showSubtotal(price, this.state.Quantity)} $</td>
+                <td>
+                  <a
+                    onClick = {()=> this.onDelete(this.props.productCarts)}
+                    className="btn btn-danger "
+                  >
+                    Xóa
+                  </a>
                 </td>
               </tr>
             </tbody>
@@ -75,13 +81,10 @@ class ProductCarts extends Component {
           <button
             type="button"
             className="btn btn-secondary"
-            data-bs-dismiss="modal"
+            data-bs-dismiss="modal"          
           >
-            Close
+            Đóng
           </button>
-          {/* <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button> */}
         </div>
       </div>
     );
@@ -98,5 +101,8 @@ class ProductCarts extends Component {
     Quantity = parseFloat(Quantity);
     return price * Quantity;
   };
+  onDelete = (id)=>{
+    console.log(id)
+  }
 }
 export { ProductCarts };
