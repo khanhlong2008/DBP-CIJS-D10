@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProductDetail from "./ProductDetail";
 import ProductList from "./ProductList";
-
+import {ProductCarts} from "./ProductCarts"
 export default class SmartphoneStore extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ export default class SmartphoneStore extends Component {
         {
           id: 1,
           name: "Samsung Galaxy A10",
-          price: "40906000",
+          price: "1200 $",
           img: "assets/img/samsung-galaxy.jpg",
           info: {
             screen: "AMOLED Full HD 9.0",
@@ -24,7 +24,7 @@ export default class SmartphoneStore extends Component {
         {
           id: 2,
           name: "IPhone12",
-          price: "200306000",
+          price: "3200 $",
           img: "assets/img/iphone-12.jpg",
           info: {
             screen: "Full HD 12.0",
@@ -38,7 +38,7 @@ export default class SmartphoneStore extends Component {
         {
           id: 3,
           name: "Xiaomi Note 10",
-          price: "10005000",
+          price: "900 $",
           img: "assets/img/xiaomi-mi-11.jpg",
           info: {
             screen: "OLED 10.0",
@@ -53,7 +53,7 @@ export default class SmartphoneStore extends Component {
       selectedProduct: {
         id: 1,
         name: "Samsung Galaxy A10",
-        price: "40906000",
+        price: "1200 $",
         img: "assets/img/xiaomi-mi-11.jpg",
         info: {
           screen: "AMOLED Full HD 9.0",
@@ -83,23 +83,20 @@ export default class SmartphoneStore extends Component {
     const { products, selectedProduct } = this.state;
     return (
       <div className="container pt-5">
-        <h1 className="text-primary text-center">Thế giới di động</h1>
-        <ProductList
-          products={products}
-          onSelectedProduct={this.onSelectedProduct}
-        />
-        <ProductDetail productDetail={selectedProduct} />
-
-        {/* Button to show Modal */}
-        <div>
+        <div className="row d-flex  bd-highlight " >
+        <div className="col p-2 flex-grow-1 bd-highlight"><h1 className="text-primary ">Thế giới di động</h1></div>
+          <div className="col  p-2 bd-highlight">
+          
+          {/* Button to show Modal */}
+      <div>
           {/* Button trigger modal */}
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-danger"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            Launch demo modal
+            Giỏ hàng
           </button>
           {/* Modal */}
 
@@ -110,11 +107,11 @@ export default class SmartphoneStore extends Component {
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
-                    Modal title
+                    Giỏ hàng
                   </h5>
                   <button
                     type="button"
@@ -123,23 +120,24 @@ export default class SmartphoneStore extends Component {
                     aria-label="Close"
                   />
                 </div>
-                <div className="modal-body">...</div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
+                
+                <ProductCarts productCarts ={selectedProduct}/>
               </div>
             </div>
           </div>
         </div>
+          </div>
+        </div>
+        <ProductList
+          products={products}
+          onSelectedProduct={this.onSelectedProduct}
+        />
+        <ProductDetail 
+          products={products}
+          productDetail={selectedProduct} 
+        />
+
+      
       </div>
     );
   }
