@@ -12,7 +12,7 @@ class ProductCarts extends Component {
   }
 
   render() {
-    const { img, name, price ,id} = this.props.productCarts;
+    const { img, name, price, id } = this.props.productCarts;
     var { Quantity } = this.state;
     return (
       <div>
@@ -67,7 +67,7 @@ class ProductCarts extends Component {
                 <td>{this.showSubtotal(price, this.state.Quantity)} $</td>
                 <td>
                   <a
-                    onClick = {()=> this.onDelete(this.props.productCarts)}
+                    onClick={() => this.onDelete(this.props.productCarts)}
                     className="btn btn-danger "
                   >
                     Xóa
@@ -81,7 +81,7 @@ class ProductCarts extends Component {
           <button
             type="button"
             className="btn btn-secondary"
-            data-bs-dismiss="modal"          
+            data-bs-dismiss="modal"
           >
             Đóng
           </button>
@@ -101,8 +101,8 @@ class ProductCarts extends Component {
     Quantity = parseFloat(Quantity);
     return price * Quantity;
   };
-  onDelete = (id)=>{
-    console.log(id)
-  }
+  onDelete = (id) => {
+    console.log(id);
+  };
 }
 export { ProductCarts };

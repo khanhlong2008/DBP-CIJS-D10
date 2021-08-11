@@ -11,7 +11,7 @@ export default class ProductDetail extends Component {
         <div className="row">
           <div className="col-md-4">
             <h3 className="text-center mb-2">{name}</h3>
-            <img src={img} className="card-img-top"/>
+            <img src={img} className="card-img-top" />
           </div>
           <div className="col-md-8">
             <div className="table">

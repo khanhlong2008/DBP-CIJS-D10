@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProductDetail from "./ProductDetail";
 import ProductList from "./ProductList";
-import {ProductCarts} from "./ProductCarts"
+import { ProductCarts } from "./ProductCarts";
 export default class SmartphoneStore extends Component {
   constructor(props) {
     super(props);
@@ -78,66 +78,62 @@ export default class SmartphoneStore extends Component {
       });
     }
   };
-  
+
   render() {
     const { products, selectedProduct } = this.state;
     return (
       <div className="container pt-5">
-        <div className="row d-flex  bd-highlight " >
-        <div className="col p-2 flex-grow-1 bd-highlight"><h1 className="text-primary ">Thế giới di động</h1></div>
+        <div className="row d-flex  bd-highlight ">
+          <div className="col p-2 flex-grow-1 bd-highlight">
+            <h1 className="text-primary ">Thế giới di động</h1>
+          </div>
           <div className="col  p-2 bd-highlight">
-          
-          {/* Button to show Modal */}
-      <div>
-          {/* Button trigger modal */}
-          <button
-            type="button"
-            className="btn btn-danger"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            Giỏ hàng
-          </button>
-          {/* Modal */}
+            {/* Button to show Modal */}
+            <div>
+              {/* Button trigger modal */}
+              <button
+                type="button"
+                className="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Giỏ hàng
+              </button>
+              {/* Modal */}
 
-          <div
-            className="modal fade"
-            id="exampleModal"
-            tabIndex={-1}
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-xl">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
-                    Giỏ hàng
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  />
+              <div
+                className="modal fade"
+                id="exampleModal"
+                tabIndex={-1}
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog modal-xl">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel">
+                        Giỏ hàng
+                      </h5>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      />
+                    </div>
+
+                    <ProductCarts productCarts={selectedProduct} />
+                  </div>
                 </div>
-                
-                <ProductCarts productCarts ={selectedProduct}/>
               </div>
             </div>
-          </div>
-        </div>
           </div>
         </div>
         <ProductList
           products={products}
           onSelectedProduct={this.onSelectedProduct}
         />
-        <ProductDetail 
-          products={products}
-          productDetail={selectedProduct} 
-        />
-
-      
+        <ProductDetail products={products} productDetail={selectedProduct} />
       </div>
     );
   }
