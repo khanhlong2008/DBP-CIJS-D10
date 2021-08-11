@@ -7,7 +7,7 @@ class Bacon extends Component {
       
        
 
-          <div class="bacon"></div>
+          <div className="bacon"></div>
       
     );
   }

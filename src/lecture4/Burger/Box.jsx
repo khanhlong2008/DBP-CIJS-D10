@@ -9,18 +9,18 @@ class Box extends Component {
   render() {
     return (
       <div>
-        <div class="box">
+        <div className="box">
           {/* <!-- Phần bánh burger phía trên --> */}
-          <div class="bread-top">
-            <div class="seeds"></div>
-            <div class="seeds2"></div>
+          <div className="bread-top">
+            <div className="seeds"></div>
+            <div className="seeds2"></div>
           </div>
           <Salad />
           <Cheese />
           <Bacon />
           <Meat />
           {/* <!-- Phần bánh burger phía dươi --> */}
-          <div class="bread-bottom"></div>
+          <div className="bread-bottom"></div>
         </div>
       </div>
     );
