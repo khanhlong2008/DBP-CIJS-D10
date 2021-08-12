@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
 
 export default class ProductDetail extends Component {
@@ -14,7 +13,7 @@ export default class ProductDetail extends Component {
             <img src={img} className="card-img-top" />
           </div>
           <div className="col-md-8">
-            <div className="table">
+            <div class="table">
               <thead>
                 <tr>
                   <td colSpan="2">

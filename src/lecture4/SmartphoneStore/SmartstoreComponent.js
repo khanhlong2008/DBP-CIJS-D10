@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import ProductDetail from "./ProductDetail";
 import ProductList from "./ProductList";
-import { ProductCarts } from "./ProductCarts";
+
+import Cart from "./Cart";
 export default class SmartphoneStore extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ export default class SmartphoneStore extends Component {
         {
           id: 1,
           name: "Samsung Galaxy A10",
-          price: "1200 $",
+          price: "40906000",
           img: "assets/img/samsung-galaxy.jpg",
           info: {
             screen: "AMOLED Full HD 9.0",
@@ -24,7 +26,7 @@ export default class SmartphoneStore extends Component {
         {
           id: 2,
           name: "IPhone12",
-          price: "3200 $",
+          price: "200306000",
           img: "assets/img/iphone-12.jpg",
           info: {
             screen: "Full HD 12.0",
@@ -38,7 +40,7 @@ export default class SmartphoneStore extends Component {
         {
           id: 3,
           name: "Xiaomi Note 10",
-          price: "900 $",
+          price: "10005000",
           img: "assets/img/xiaomi-mi-11.jpg",
           info: {
             screen: "OLED 10.0",
@@ -53,8 +55,8 @@ export default class SmartphoneStore extends Component {
       selectedProduct: {
         id: 1,
         name: "Samsung Galaxy A10",
-        price: "1200 $",
-        img: "assets/img/xiaomi-mi-11.jpg",
+        price: "40906000",
+        img: "assets/img/samsung-galaxy.jpg",
         info: {
           screen: "AMOLED Full HD 9.0",
           os: "Android 9.0",
@@ -68,6 +70,7 @@ export default class SmartphoneStore extends Component {
     };
   }
 
+  
   onSelectedProduct = (id) => {
     const products = this.state.products;
     const idx = products.findIndex((product) => product.id === id);
@@ -79,61 +82,75 @@ export default class SmartphoneStore extends Component {
     }
   };
 
+
+  onAddToCart = (product) => {
+    const idxItemInCart = this.state.cart.findIndex(
+      (item) => item.id === product.id
+    );
+
+
+    if (idxItemInCart === -1) {
+      product.amount = 1;
+      this.setState({
+        cart: [...this.state.cart, product],
+      });
+    } else {
+
+      const currentCart = this.state.cart;
+      currentCart[idxItemInCart].amount += 1;
+      this.setState({
+        cart: currentCart,
+      });
+    }
+  };
+
+  onPlusAmountCartItem = (id) => {
+    const currentCart = this.state.cart;
+    const idxItemInCart = currentCart.findIndex((item) => item.id === id);
+
+    currentCart[idxItemInCart].amount += 1;
+    this.setState({
+      cart: currentCart,
+    });
+  };
+
+
+  onMinusAmountCartItem = (id) => {
+    const currentCart = this.state.cart;
+    const idxItemInCart = currentCart.findIndex((item) => item.id === id);
+    currentCart[idxItemInCart].amount -= 1;
+    this.setState({
+      cart: currentCart,
+    });
+  };
   render() {
-    const { products, selectedProduct } = this.state;
+    const { products, selectedProduct, cart } = this.state;
     return (
       <div className="container pt-5">
-        <div className="row d-flex  bd-highlight ">
-          <div className="col p-2 flex-grow-1 bd-highlight">
-            <h1 className="text-primary ">Thế giới di động</h1>
-          </div>
-          <div className="col  p-2 bd-highlight">
-            {/* Button to show Modal */}
-            <div>
-              {/* Button trigger modal */}
-              <button
-                type="button"
-                className="btn btn-danger"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Giỏ hàng
-              </button>
-              {/* Modal */}
-
-              <div
-                className="modal fade"
-                id="exampleModal"
-                tabIndex={-1}
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog modal-xl">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLabel">
-                        Giỏ hàng
-                      </h5>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      />
-                    </div>
-
-                    <ProductCarts productCarts={selectedProduct} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h1 class="text-primary text-center mb-5">Thế giới di động</h1>
+        <div className="d-flex justify-content-end">
+          <a
+            type="button"
+            className="text-success"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Giỏ hàng ({cart.length})
+          </a>
         </div>
+
         <ProductList
           products={products}
           onSelectedProduct={this.onSelectedProduct}
+          onAddToCart={this.onAddToCart}
+ 
         />
-        <ProductDetail products={products} productDetail={selectedProduct} />
+        <ProductDetail productDetail={selectedProduct} />
+        <Cart
+          cart={cart}
+          onPlusAmountCartItem={this.onPlusAmountCartItem}
+          onMinusAmountCartItem={this.onMinusAmountCartItem}
+        />
       </div>
     );
   }
