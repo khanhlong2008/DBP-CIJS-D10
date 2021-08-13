@@ -1,3 +1,5 @@
+/* eslint-disable no-unreachable */
+/* eslint-disable default-case */
 /* eslint-disable no-cond-assign */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Component } from "react";
@@ -8,72 +10,67 @@ class LDMajor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      burgerBuilder: [
-        {
-          id: 0,
-          name: "salad",
-          quatity: 0,
-          price: "10",
-        },
-        {
-          id: 1,
-          name: "cheese",
-          quatity: 0,
-          price: "20",
-        },
-        {
-          id: 2,
-          name: "meat",
-          quatity: 0,
-          price: "25",
-        },
-        {
-          id: 3,
-          name: "bacon",
-          quatity: 0,
-          price: "28",
-        },
-      ],
-      selectedburgerBuilder: {
-        id: 0,
-        name: "salad",
-        quatity: 1,
-        price: "10",
+      burgerBuilder: {
+        salad: 0,
+        cheese: 0,
+        meat: 0,
+        bacon: 0,
       },
+      custom :[]
     };
   }
-
+  onPlusTopping = (burgerBuilder) => {
+    const custom = this.state.burgerBuilder;
+    switch (custom) {
+      case 1:
+        custom.salad +=1
+        return this.setState({
+          custom: salad
+        })
+        break;
+      case 2:
+        cheese.cheese += 1
+        return this.setState({
+          cheese: cheese,
+        });
+        break;
+      case 3:
+        meat.meat +=1
+        return this.setState({
+          meat: meat,
+        });
+        break;
+      case 4:
+        bacon.bacon +=1
+        return this.setState({
+          bacon: bacon,
+        });
+        break;
+    }
+  };
+  onPlusTopping = (burgerBuilder, quatity) => {
+    if (quatity > 0) {
+      this.setState({
+        quatity: quatity,
+      });
+      console.log(burgerBuilder);
+    }
+  };
+  onMinusTopping = () => {};
   render() {
-    const { burgerBuilder } = this.state;
-    var { selectedburgerBuilder } = this.state;
+    const { burgerBuilder,custom } = this.state;
+
     return (
       <div className=" display">
         <Box />
         <Custom
-          
+        custom={custom}
           burgerBuilder={burgerBuilder}
-          updateLess={this.updateLess}
-          updateMore={this.updateMore}
-          Custom={selectedburgerBuilder}
+          onPlusTopping={this.onPlusTopping}
+          onMinusTopping={this.onMinusTopping}
         />
       </div>
     );
   }
-  updateMore = (selectedburgerBuilder, quatity) => {
-    if (quatity > 0) {
-      this.setState({
-        quatity: quatity,
-      });
-    }
-    console.log(selectedburgerBuilder);
-  };
-  updateLess = (selectedburgerBuilder, quatity) => {
-    if (quatity > 0) {
-      this.setState({
-        quatity: quatity,
-      });
-    }
-    console.log(selectedburgerBuilder);
-  };
 }
 export default LDMajor;

@@ -143,7 +143,6 @@ export default class SmartphoneStore extends Component {
           products={products}
           onSelectedProduct={this.onSelectedProduct}
           onAddToCart={this.onAddToCart}
- 
         />
         <ProductDetail productDetail={selectedProduct} />
         <Cart
