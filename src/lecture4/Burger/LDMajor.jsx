@@ -1,73 +1,116 @@
-/* eslint-disable no-unreachable */
-/* eslint-disable default-case */
-/* eslint-disable no-cond-assign */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Component } from "react";
 import "./../Burger/burger.css";
-import Box from "./Box";
 import Custom from "./Custom";
 class LDMajor extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      burgerBuilder: {
-        salad: 0,
-        cheese: 0,
-        meat: 0,
-        bacon: 0,
-      },
-      custom :[]
-    };
+  state = {
+    salad: 0,
+    cheese: 0,
+    meat: 0,
+    bacon: 0,
+  };
+  oder={
+    salad: 0,
+    cheese: 0,
+    meat: 0,
+    bacon: 0,
   }
-  onPlusTopping = (burgerBuilder) => {
-    const custom = this.state.burgerBuilder;
-    switch (custom) {
-      case 1:
-        custom.salad +=1
-        return this.setState({
-          custom: salad
-        })
-        break;
-      case 2:
-        cheese.cheese += 1
-        return this.setState({
-          cheese: cheese,
-        });
-        break;
-      case 3:
-        meat.meat +=1
-        return this.setState({
-          meat: meat,
-        });
-        break;
-      case 4:
-        bacon.bacon +=1
-        return this.setState({
-          bacon: bacon,
-        });
-        break;
-    }
-  };
-  onPlusTopping = (burgerBuilder, quatity) => {
-    if (quatity > 0) {
-      this.setState({
-        quatity: quatity,
-      });
-      console.log(burgerBuilder);
-    }
-  };
-  onMinusTopping = () => {};
-  render() {
-    const { burgerBuilder,custom } = this.state;
 
+  onPlusMinusTopping = (action, topping) => {
+    let { salad, cheese, meat, bacon } = this.state;
+    let stateTopping;
+    switch (topping) {
+      case 'salad': {
+        stateTopping = salad;
+        break;
+      }
+      case 'cheese': {
+        stateTopping = cheese;
+        break;
+      }
+      case 'meat': {
+        stateTopping = meat;
+        break;
+      }
+      case 'bacon': {
+        stateTopping = bacon;
+        break;
+      }
+      default:
+        break;
+    }
+    if (action === 'more') {
+      stateTopping = stateTopping + 1;
+    } else {
+      stateTopping = stateTopping - 1;
+    }
+    this.setState({
+      [topping]: stateTopping >= 0 ? stateTopping : 0,
+    });
+  };
+  burgerContent = () => {
+    let { salad, cheese, meat, bacon } = this.state;
+    let burger = [];
+    for (let i = 0; i < salad; i++) {
+      burger.push(<div key={burger.length} className="salad"></div>);
+    }
+    for (let i = 0; i < cheese; i++) {
+      burger.push(<div key={burger.length} className="cheese"></div>);
+    }
+    for (let i = 0; i < meat; i++) {
+      burger.push(<div key={burger.length} className="meat"></div>);
+    }
+    for (let i = 0; i < bacon; i++) {
+      burger.push(<div key={burger.length} className="bacon"></div>);
+    }
+    if (burger.length === 0)
+      burger.push(<h1 key="0">Please start adding topping</h1>);
+    return burger;
+  };
+  onReset=()=>{
+    this.setState({
+      salad:0,
+      cheese:0,
+      meat:0,
+      bacon:0,
+    })
+  }
+  onOrder = () => {
+    
+    let { salad, cheese, meat, bacon } = this.oder
+   
+    if (salad ===0 && cheese ===0 && meat ===0 && bacon ===0 ){
+      this.setState({
+        salad:1,
+        cheese:1,
+        meat:1,
+        bacon:1,
+      })
+      return <p>Vui lòng hãy chọn topping</p>;
+    }else{
+      <p>Thanh Toán Thành Công</p>
+    }
+  };
+  render() {
     return (
       <div className=" display">
-        <Box />
+        <div>
+          <div className="box">
+            {/* <!-- Phần bánh burger phía trên --> */}
+            <div className="bread-top">
+              <div className="seeds"></div>
+              <div className="seeds2"></div>
+            </div>
+
+            {this.burgerContent()}
+            {/* <!-- Phần bánh burger phía dươi --> */}
+            <div className="bread-bottom"></div>
+          </div>
+        </div>
         <Custom
-        custom={custom}
-          burgerBuilder={burgerBuilder}
-          onPlusTopping={this.onPlusTopping}
-          onMinusTopping={this.onMinusTopping}
+        onOrder={this.onOrder}
+          Custom={this.state}
+          onPlusMinusTopping={this.onPlusMinusTopping}
+          onReset={this.onReset}
         />
       </div>
     );

@@ -6,16 +6,16 @@ class Custom extends Component {
   constructor(props) {
     super(props);
     this.state = {
-          priceSalad: 10,
-          pricecheese: 20,
-          pricemeat: 25,
-          pricebacon: 28,
+      priceSalad: 10,
+      priceCheese: 20,
+      priceMeat: 25,
+      priceBacon: 28,
     };
   }
   render() {
-    const { onMinusTopping, onPlusTopping, burgerBuilder } = this.props;
-    const { priceSalad, pricecheese, pricemeat, pricebacon ,} = this.state;
-    const { salad,cheese,meat,bacon} = burgerBuilder;
+    const { onPlusMinusTopping, onReset ,onOrder} = this.props;
+    const { salad, cheese, bacon, meat } = this.props.Custom;
+    const { priceBacon, priceCheese, priceMeat, priceSalad } = this.state;
     return (
       <div className="custom">
         <p>CUSTOM YOUR BURGER</p>
@@ -27,72 +27,152 @@ class Custom extends Component {
           <div className="border1"></div>
           <div className="item item5 font">Salad</div>
           <div className="item item6 font-size">
-            {/* <UpdateAmout
-              burgerBuilder={burgerBuilder}
-              onMinusTopping={onMinusTopping}
-              onPlusTopping={onPlusTopping}
-            /> */}
             <div className="row">
               <input
                 type="button"
                 value="+"
                 className="btn1 btn-info col"
-                onClick={() => onPlusTopping("salad"+1)}
+                onClick={() => onPlusMinusTopping("more", "salad")}
               />
               <p className="col">{salad}</p>
               <input
                 type="button"
                 value="-"
                 className="btn1 btn-info col"
-                onClick={() => onMinusTopping("salad"-1)}
+                onClick={() => onPlusMinusTopping("less", "salad")}
               />
             </div>
           </div>
           <div className="item item7 font-size">{priceSalad}$</div>
-          <div className="item item8 font-size"></div>
+          <div className="item item8 font-size">{priceSalad * salad}$</div>
           <div className="item item9 font">Cheese</div>
-          <div className="item item10 font-size">{/* <UpdateAmout /> */}
-          <div className="row">
+          <div className="item item10 font-size">
+            <div className="row">
               <input
                 type="button"
                 value="+"
                 className="btn1 btn-info col"
-                onClick={() => onPlusTopping(burgerBuilder)}
+                onClick={() => onPlusMinusTopping("more", "cheese")}
               />
               <p className="col">{cheese}</p>
               <input
                 type="button"
                 value="-"
                 className="btn1 btn-info col"
-                onClick={() => onMinusTopping(burgerBuilder)}
+                onClick={() => onPlusMinusTopping("less", "cheese")}
               />
             </div>
           </div>
-          <div className="item item11 font-size">{pricecheese}$</div>
-          <div className="item item12 font-size"></div>
+          <div className="item item11 font-size">{priceCheese}$</div>
+          <div className="item item12 font-size">{priceCheese * cheese}$</div>
           <div className="item item13 font">Meat</div>
-          <div className="item item14 font-size">{/* <UpdateAmout /> */}</div>
-          <div className="item item15 font-size">{pricemeat}$</div>
-          <div className="item item16 font-size"></div>
+          <div className="item item14 font-size">
+            <div className="row">
+              <input
+                type="button"
+                value="+"
+                className="btn1 btn-info col"
+                onClick={() => onPlusMinusTopping("more", "meat")}
+              />
+              <p className="col">{meat}</p>
+              <input
+                type="button"
+                value="-"
+                className="btn1 btn-info col"
+                onClick={() => onPlusMinusTopping("less", "meat")}
+              />
+            </div>
+          </div>
+          <div className="item item15 font-size">{priceMeat}$</div>
+          <div className="item item16 font-size">{priceMeat * meat}$</div>
           <div className="item item17 font">Bacon</div>
-          <div className="item item18 font-size">{/* <UpdateAmout /> */}</div>
-          <div className="item item19 font-size">{pricebacon}$</div>
-          <div className="item item20 font-size"></div>
+          <div className="item item18 font-size">
+            <div className="row">
+              <input
+                type="button"
+                value="+"
+                className="btn1 btn-info col"
+                onClick={() => onPlusMinusTopping("more", "bacon")}
+              />
+              <p className="col">{bacon}</p>
+              <input
+                type="button"
+                value="-"
+                className="btn1 btn-info col"
+                onClick={() => onPlusMinusTopping("less", "bacon")}
+              />
+            </div>
+          </div>
+          <div className="item item19 font-size">{priceBacon}$</div>
+          <div className="item item20 font-size">{priceBacon * bacon}$</div>
           <div className="border2"></div>
           <div className="item item21 font">TOTAL COST :</div>
-          <div className="item item22 font-size">$</div>
+          <div className="item item22 font-size">
+            {priceSalad * salad +
+              priceCheese * cheese +
+              priceMeat * meat +
+              priceBacon * bacon}
+            $
+          </div>
           <div className="item  item24">
-            <input className="btn2 btn-info  font-size2 center" value="RESET" />
+            <button
+              className="btn2 btn-info  font-size2 center"
+              onClick={() => onReset()}
+            >
+              RESET
+            </button>
           </div>
           <div className="item  item23">
-            <input
-              className="btn2 btn-info  font-size2 center"
-              value="ORDER NOW"
-            />
+            <button
+              type="button"
+              class="btn2 btn-info  font-size2 center"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              onClick={() => onReset()}
+            >
+              OPEN NOW
+            </button>
+
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      OPEN NOW
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body" onclick={() => onOrder()}>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     );
   }
+  
 }
 export default Custom;

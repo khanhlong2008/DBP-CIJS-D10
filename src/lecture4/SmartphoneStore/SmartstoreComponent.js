@@ -49,6 +49,8 @@ export default class SmartphoneStore extends Component {
             backCamera: "Chính 96MB, phụ 30MP",
           },
           ram: "10 GB",
+        
+     
           rom: "64 GB",
         },
       ],
