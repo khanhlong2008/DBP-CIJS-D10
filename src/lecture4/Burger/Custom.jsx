@@ -13,12 +13,12 @@ class Custom extends Component {
     };
   }
   render() {
-    const { onPlusMinusTopping, onReset ,onOrder} = this.props;
-    const { salad, cheese, bacon, meat } = this.props.Custom;
+    const { onPlusMinusTopping, onReset,onOrder } = this.props;
+    const { salad, cheese, bacon, meat ,hastag} = this.props.Custom;
     const { priceBacon, priceCheese, priceMeat, priceSalad } = this.state;
     return (
       <div className="custom">
-        <p>CUSTOM YOUR BURGER</p>
+        <h1>{hastag}</h1>
         <div className="customItem">
           <div className="item item1 font">TOPPING</div>
           <div className="item item2 font">OPTION</div>
@@ -114,6 +114,17 @@ class Custom extends Component {
               priceBacon * bacon}
             $
           </div>
+          <div className="item  item23">
+          <button
+              type="button"
+              className="btn2 btn-info  font-size2 center"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              onClick={() => onOrder()}
+            >
+              OPEN NOW
+            </button>
+          </div>
           <div className="item  item24">
             <button
               className="btn2 btn-info  font-size2 center"
@@ -122,53 +133,7 @@ class Custom extends Component {
               RESET
             </button>
           </div>
-          <div className="item  item23">
-            <button
-              type="button"
-              class="btn2 btn-info  font-size2 center"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              onClick={() => onReset()}
-            >
-              OPEN NOW
-            </button>
-
-            <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      OPEN NOW
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body" onclick={() => onOrder()}>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     );

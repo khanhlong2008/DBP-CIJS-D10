@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import { Component } from "react";
 import "./../Burger/burger.css";
 import Custom from "./Custom";
@@ -7,38 +8,33 @@ class LDMajor extends Component {
     cheese: 0,
     meat: 0,
     bacon: 0,
+    hastag: 'CUSTOM YOUR BURGER',
   };
-  oder={
-    salad: 0,
-    cheese: 0,
-    meat: 0,
-    bacon: 0,
-  }
 
   onPlusMinusTopping = (action, topping) => {
     let { salad, cheese, meat, bacon } = this.state;
     let stateTopping;
     switch (topping) {
-      case 'salad': {
+      case "salad": {
         stateTopping = salad;
         break;
       }
-      case 'cheese': {
+      case "cheese": {
         stateTopping = cheese;
         break;
       }
-      case 'meat': {
+      case "meat": {
         stateTopping = meat;
         break;
       }
-      case 'bacon': {
+      case "bacon": {
         stateTopping = bacon;
         break;
       }
       default:
         break;
     }
-    if (action === 'more') {
+    if (action === "more") {
       stateTopping = stateTopping + 1;
     } else {
       stateTopping = stateTopping - 1;
@@ -66,30 +62,32 @@ class LDMajor extends Component {
       burger.push(<h1 key="0">Please start adding topping</h1>);
     return burger;
   };
-  onReset=()=>{
+  onReset = () => {
     this.setState({
-      salad:0,
-      cheese:0,
-      meat:0,
-      bacon:0,
-    })
-  }
+      salad: 0,
+      cheese: 0,
+      meat: 0,
+      bacon: 0,
+     
+    });
+  };
   onOrder = () => {
-    
-    let { salad, cheese, meat, bacon } = this.oder
-   
-    if (salad ===0 && cheese ===0 && meat ===0 && bacon ===0 ){
+    const { salad, cheese, meat, bacon } = this.state;
+    if (salad === 0 && cheese === 0 && meat === 0 && bacon ===0) {
       this.setState({
-        salad:1,
-        cheese:1,
-        meat:1,
-        bacon:1,
+        hastag: 'PLEASE CHOOSE A TOPPING'
       })
-      return <p>Vui lòng hãy chọn topping</p>;
-    }else{
-      <p>Thanh Toán Thành Công</p>
+    } else{
+      this.setState({
+        salad: 0,
+      cheese: 0,
+      meat: 0,
+      bacon: 0,
+        hastag: 'PAYMENT SUCCESS'
+      })
     }
   };
+
   render() {
     return (
       <div className=" display">
@@ -107,7 +105,7 @@ class LDMajor extends Component {
           </div>
         </div>
         <Custom
-        onOrder={this.onOrder}
+          onOrder={this.onOrder}
           Custom={this.state}
           onPlusMinusTopping={this.onPlusMinusTopping}
           onReset={this.onReset}
