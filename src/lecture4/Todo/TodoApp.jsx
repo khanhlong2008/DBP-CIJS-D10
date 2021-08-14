@@ -14,29 +14,39 @@ class TodoApp extends Component {
         { id: 4, title: "Dắt gấu đi dạo", isCompleted: false },
         { id: 5, title: "Trade coin", isCompleted: false },
       ],
+      newTodos :[]
     };
   }
   render() {
     const { todos } = this.state;
     return (
       <>
-        <form class="center">
+        <section className="center">
           <div method="post">
             <h4>FILLER TASKS (BY NAME)</h4>
             <FillerTodo />
             <h4>TODO</h4>
             <TodoList todos={todos} />
             <h4>ADD ITEM</h4>
-            <AddTodo />
+            <AddTodo onAddTodoItem={this.onAddTodoItem}/>
           </div>
-        </form>
+        </section>
       </>
     );
   }
-  onAddItem = (todos) =>{
+  // onAddItem = (todos) =>{
+  //   var newId = this.state.todos.length+1 
+  //   var todoItem ={newId,};
+  //   todos.push(todoItem)
+  // }
+  onAddTodoItem = (newtodos) =>{
+    // var newId = this.state.todos.length+1 
     
-    var todoItem ={};
-    todos.push(todoItem)
+    var newId = this.state.legnth + 1
+    this.setState({
+      todos:[...this.state.todos,newtodos],
+      todos: newId
+    })
   }
 }
 export default TodoApp;

@@ -8,13 +8,14 @@ class TodoItem extends Component {
     const { title } = this.props.todos;
     return (
       <>
-        <div class="txt_field">
-          <div class="display">
-            <input type="submit" value=""/>
-            <label>{title}</label>
-            <button class="margin">Delete</button>
+        <form>
+          <div className="txt_field">
+            <div className="display">
+              <input type="text" defaultValue={title} />
+              <button className="margin">Delete</button>
+            </div>
           </div>
-        </div>
+        </form>
       </>
     );
   }

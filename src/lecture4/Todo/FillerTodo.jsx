@@ -7,13 +7,15 @@ class FillerTodo extends Component {
   render() {
     return (
       <>
-        <div class="txt_field">
-          <div class="display">
-            <input type="text" />
-            <button class="margin">Clear</button>
+        <form>
+          <div className="txt_field">
+            <div className="display">
+              <input type="text" />
+              <button className="margin">Clear</button>
+            </div>
+            <label />
           </div>
-          <label></label>
-        </div>
+        </form>
       </>
     );
   }
