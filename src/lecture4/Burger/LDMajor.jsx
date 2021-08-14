@@ -8,7 +8,7 @@ class LDMajor extends Component {
     cheese: 0,
     meat: 0,
     bacon: 0,
-    hastag: 'CUSTOM YOUR BURGER',
+    hastag: "CUSTOM YOUR BURGER",
   };
 
   onPlusMinusTopping = (action, topping) => {
@@ -68,23 +68,23 @@ class LDMajor extends Component {
       cheese: 0,
       meat: 0,
       bacon: 0,
-     
+      hastag: "CUSTOM YOUR BURGER",
     });
   };
   onOrder = () => {
     const { salad, cheese, meat, bacon } = this.state;
-    if (salad === 0 && cheese === 0 && meat === 0 && bacon ===0) {
+    if (salad === 0 && cheese === 0 && meat === 0 && bacon === 0) {
       this.setState({
-        hastag: 'PLEASE CHOOSE A TOPPING'
-      })
-    } else{
+        hastag: "PLEASE CHOOSE A TOPPING",
+      });
+    } else {
       this.setState({
         salad: 0,
-      cheese: 0,
-      meat: 0,
-      bacon: 0,
-        hastag: 'PAYMENT SUCCESS'
-      })
+        cheese: 0,
+        meat: 0,
+        bacon: 0,
+        hastag: "PAYMENT SUCCESS",
+      });
     }
   };
 
