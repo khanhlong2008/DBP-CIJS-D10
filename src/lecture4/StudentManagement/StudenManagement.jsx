@@ -31,7 +31,6 @@ export default class StudentManagement extends Component {
         <StudentForm onAddStudent={this.onAddStudent} />
         <StudentTable
           students={this.state}
-        //   student={this.state}
           onDeleteStudents={this.onDeleteStudents}
           onAddStudent={this.onAddStudent}
         />
