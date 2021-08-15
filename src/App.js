@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
-import TodoApp from "./lecture4/Todo/TodoApp";
+import StudentManagement from "./lecture4/StudentManagement/StudenManagement";
+// import TodoApp from "./lecture4/Todo/TodoApp";
 // import LDMajor from "./lecture4/Burger/LDMajor";
 // import Car from "./lecture4/Car/Car";
 // import SmartphoneStore from "./lecture4/SmartphoneStore/SmartstoreComponent";
@@ -12,7 +13,8 @@ class App extends Component {
         {/* <Car /> */}
         {/* <SmartphoneStore /> */}
         {/* <LDMajor/> */}
-        <TodoApp/>
+        {/* <TodoApp/> */}
+        <StudentManagement/>
       </div>
     );
   }
