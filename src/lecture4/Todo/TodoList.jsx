@@ -6,11 +6,11 @@ class TodoList extends Component {
     super(props);
   }
   render() {
-    const { todos } = this.props;
+    const { todos ,onDeleteTodoItem} = this.props;
     return (
-      < div>
+      <div>
         {todos.map((todoItem, index) => {
-          return <TodoItem key={index} todos={todoItem} />;
+          return <TodoItem key={index} todos={todoItem} onDeleteTodoItem={onDeleteTodoItem} />;
         })}
       </div>
     );

@@ -17,7 +17,7 @@ class AddTodo extends Component {
                 value={this.state.title}
                 name="title"
               />
-              <button className="margin" type="submit">
+              <button className="margin" type="submit" >
                 Add
               </button>
             </div>

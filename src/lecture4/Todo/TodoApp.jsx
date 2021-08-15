@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import { Component } from "react";
 import TodoList from "./TodoList";
 import "./../Todo/style.css";
@@ -8,13 +9,12 @@ class TodoApp extends Component {
     super(props);
     this.state = {
       todos: [
-        { id: 1, title: "Đi cafe với gấu", isCompleted: true },
-        { id: 2, title: "Học ReactJS", isCompleted: false },
-        { id: 3, title: "Học cách thổi nến", isCompleted: false },
-        { id: 4, title: "Dắt gấu đi dạo", isCompleted: false },
-        { id: 5, title: "Trade coin", isCompleted: false },
+        { id: 0, title: "Đi cafe với gấu", isCompleted: true },
+        { id: 1, title: "Học ReactJS", isCompleted: false },
+        { id: 2, title: "Học cách thổi nến", isCompleted: false },
+        { id: 3, title: "Dắt gấu đi dạo", isCompleted: false },
+        { id: 4, title: "Trade coin", isCompleted: false },
       ],
-      newTodos :[]
     };
   }
   render() {
@@ -26,27 +26,42 @@ class TodoApp extends Component {
             <h4>FILLER TASKS (BY NAME)</h4>
             <FillerTodo />
             <h4>TODO</h4>
-            <TodoList todos={todos} />
+            <TodoList todos={todos} onDeleteTodoItem={this.onDeleteTodoItem} />
             <h4>ADD ITEM</h4>
-            <AddTodo onAddTodoItem={this.onAddTodoItem}/>
+            <AddTodo onAddTodoItem={this.onAddTodoItem} />
           </div>
         </section>
       </>
     );
   }
-  // onAddItem = (todos) =>{
-  //   var newId = this.state.todos.length+1 
-  //   var todoItem ={newId,};
-  //   todos.push(todoItem)
-  // }
-  onAddTodoItem = (newtodos) =>{
-    // var newId = this.state.todos.length+1 
-    
-    var newId = this.state.legnth + 1
+
+  onAddTodoItem = (newtodos) => {
+    const todos  = this.state.todos;
+    let maxid = 0;
+    todos.forEach((character) => {
+      if (character.id > maxid) {
+        maxid = character.id;
+        return maxid;
+      }
+      console.log(maxid);
+    });
+    todos.isCompleted = false;
+    const isCompleted = todos.isCompleted;
+    const newId = maxid + 1;
+    const newTodo = { ...newtodos, id: newId, isCompleted };
     this.setState({
-      todos:[...this.state.todos,newtodos],
-      todos: newId
-    })
-  }
+      todos: [...this.state.todos, newTodo],
+    });
+  };
+  onDeleteTodoItem = (todo,id) => {
+    const todos  = this.state.todos;
+    const valueToRemove =  todo
+    const newTodo = todos.filter(item => item !== valueToRemove);
+    this.setState({
+      todos: newTodo
+    });
+    console.log(todo)
+  };
+  
 }
 export default TodoApp;

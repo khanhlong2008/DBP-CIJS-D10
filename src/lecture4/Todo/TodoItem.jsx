@@ -5,19 +5,24 @@ class TodoItem extends Component {
     super(props);
   }
   render() {
-    const { title } = this.props.todos;
+    const { title ,id } = this.props.todos;
+    const {onDeleteTodoItem ,todos} = this.props
     return (
       <>
-        <form>
+        <form onSubmit={this.onSubmitHandler}>
           <div className="txt_field">
             <div className="display">
-              <input type="text" defaultValue={title} />
-              <button className="margin">Delete</button>
+              <input type="text" value={title} />
+              <button className="margin" type="submit" onClick={() => onDeleteTodoItem(todos,id)}>Delete</button>
             </div>
           </div>
         </form>
       </>
     );
+  }
+  onSubmitHandler = e => {
+    e.preventDefault();
+
   }
 }
 export default TodoItem;
