@@ -45,7 +45,8 @@ class TodoApp extends Component {
       }
       console.log(maxid);
     });
-    todos.isCompleted = false;
+    todos.isCompleted = false;    // console.log(newStudents)
+
     const isCompleted = todos.isCompleted;
     const newId = maxid + 1;
     const newTodo = { ...newtodos, id: newId, isCompleted };

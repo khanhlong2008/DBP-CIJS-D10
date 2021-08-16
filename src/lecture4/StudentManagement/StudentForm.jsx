@@ -9,6 +9,7 @@ export default class StudentForm extends Component {
     Toan: "",
     Ly: "",
     Hoa: "",
+    GPA:"",
   };
 
   onChangeHandler = (event) => {
@@ -24,6 +25,7 @@ export default class StudentForm extends Component {
     this.props.onAddStudent(this.state);
   };
   render() {
+    
     return (
       <div>
         <form onSubmit={this.onSubmitHandler}>
@@ -121,7 +123,7 @@ export default class StudentForm extends Component {
             </div>
             <div className="col-6">
               <div className="form-group">
-                <button type="submit" className="mt-4 btn btn-primary">
+                <button type="submit" className="mt-4 btn btn-primary" >
                   Thêm sinh viên
                 </button>
               </div>

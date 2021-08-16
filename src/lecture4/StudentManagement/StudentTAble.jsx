@@ -15,38 +15,25 @@ export default class StudentTable extends Component {
   };
 
   render() {
-    const { onDeleteStudents } = this.props;
-    let { students } = this.props.students;
-   
+    let { students ,} = this.props.students;
+    const {onDeleteStudents,onCreateGPA} = this.props
     //Chỗ này sắp xếp lại cái students
     switch (this.state.sortType) {
-      case 1:{
-        sortType.sort((a,b) => {
-          return parseFloat(a.GPA) - parseFloat(b.GPA);
-        })
+      case 1:
         break;
-      }
+      
         // sắp xếp lại student theo GPA up
 
         
-      case 2:{
-        sortType.sort((a,b) => {
-          return parseFloat(b.GPA) - parseFloat(a.GPA);
-        })
+      case 2:
         break;
-      }
+      
         // sắp xếp lại student theo GPA up
 
         
-      case 3:{
-        
-        sortType.sort((a,b) => {
-         if(a.fullname < b.fullname) {return -1}
-         if(a.fullname > b.fullname) {return 11}
-         return 0;
-        })
+      case 3:
         break;
-      }
+      
         // sắp xếp lại student theo alphabet
 
        
@@ -81,7 +68,7 @@ export default class StudentTable extends Component {
         <tbody>
           {students.length > 0 ? (
             students.map((StudentItem) => {
-              const { id, email, phoneNumber, fullname, Toan, Ly, Hoa } =
+              const { id, email, phoneNumber, fullname , Toan ,Ly ,Hoa} =
                 StudentItem;
               return (
                 <tr key={id}>
@@ -90,9 +77,8 @@ export default class StudentTable extends Component {
                   <td>{phoneNumber}</td>
                   <td>{email}</td>
                   <td>
-                    {parseFloat(
-                      (parseInt(Toan) + parseInt(Ly) + parseInt(Hoa)) / 3
-                    ).toFixed(1)}
+                   {/* {onCreateGPA(StudentItem)} */}
+                   {parseFloat((parseInt(Toan) + parseInt(Ly) + parseInt(Hoa)) / 3).toFixed(1)}
                   </td>
                   <td>
                     <button

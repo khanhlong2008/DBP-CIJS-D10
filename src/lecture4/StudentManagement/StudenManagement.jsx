@@ -12,6 +12,7 @@ export default class StudentManagement extends Component {
       students: [...this.state.students, student],
     });
   };
+
   onDeleteStudents = (stu, id) => {
     const students = this.state.students;
     const studentRemove = stu;
@@ -19,8 +20,16 @@ export default class StudentManagement extends Component {
     this.setState({
       students: newStudents,
     });
-    // console.log(stu);
   };
+  onCreateGPA=(StudentItem) => {  
+    const {Hoa,Toan,Ly,GPA} = StudentItem
+    var gpa = parseFloat((parseInt(Toan) + parseInt(Ly) + parseInt(Hoa)) / 3).toFixed(1)
+    // const newStudents = {GPA: gpa}
+    // console.log(GPA)
+    this.setState({
+      GPA :gpa
+    })
+  }
   render() {
     return (
       <div className="container">
@@ -30,9 +39,9 @@ export default class StudentManagement extends Component {
 
         <StudentForm onAddStudent={this.onAddStudent} />
         <StudentTable
+        onCreateGPA={this.onCreateGPA}
           students={this.state}
           onDeleteStudents={this.onDeleteStudents}
-          onAddStudent={this.onAddStudent}
         />
       </div>
     );
