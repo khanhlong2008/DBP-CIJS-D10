@@ -19,7 +19,7 @@ export default class StudentManagement extends Component {
     this.setState({
       students: newStudents,
     });
-    console.log(stu);
+    // console.log(stu);
   };
   render() {
     return (

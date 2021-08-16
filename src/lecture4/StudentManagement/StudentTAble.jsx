@@ -1,3 +1,5 @@
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-undef */
 import React, { Component } from "react";
 
 export default class StudentTable extends Component {
@@ -15,21 +17,39 @@ export default class StudentTable extends Component {
   render() {
     const { onDeleteStudents } = this.props;
     let { students } = this.props.students;
-
+   
     //Chỗ này sắp xếp lại cái students
     switch (this.state.sortType) {
-      case 1:
+      case 1:{
+        sortType.sort((a,b) => {
+          return parseFloat(a.GPA) - parseFloat(b.GPA);
+        })
+        break;
+      }
         // sắp xếp lại student theo GPA up
 
+        
+      case 2:{
+        sortType.sort((a,b) => {
+          return parseFloat(b.GPA) - parseFloat(a.GPA);
+        })
         break;
-      case 2:
+      }
         // sắp xếp lại student theo GPA up
 
+        
+      case 3:{
+        
+        sortType.sort((a,b) => {
+         if(a.fullname < b.fullname) {return -1}
+         if(a.fullname > b.fullname) {return 11}
+         return 0;
+        })
         break;
-      case 3:
+      }
         // sắp xếp lại student theo alphabet
 
-        break;
+       
 
       default:
     }
