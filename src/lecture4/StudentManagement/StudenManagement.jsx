@@ -21,25 +21,16 @@ export default class StudentManagement extends Component {
       students: newStudents,
     });
   };
-  onCreateGPA=(StudentItem) => {  
-    const {Hoa,Toan,Ly,GPA} = StudentItem
-    var gpa = parseFloat((parseInt(Toan) + parseInt(Ly) + parseInt(Hoa)) / 3).toFixed(1)
-    // const newStudents = {GPA: gpa}
-    // console.log(GPA)
-    this.setState({
-      GPA :gpa
-    })
-  }
+ 
   render() {
     return (
       <div className="container">
-        <h1 className="text-center text-primary display-4ý">
+        <h1 className="text-center text-primary display-4">
          MANAGING STUDENTS
         </h1>
 
         <StudentForm onAddStudent={this.onAddStudent} />
         <StudentTable
-        onCreateGPA={this.onCreateGPA}
           students={this.state}
           onDeleteStudents={this.onDeleteStudents}
         />

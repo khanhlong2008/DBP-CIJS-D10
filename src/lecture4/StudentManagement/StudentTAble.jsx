@@ -1,5 +1,4 @@
-/* eslint-disable no-lone-blocks */
-/* eslint-disable no-undef */
+
 import React, { Component } from "react";
 
 export default class StudentTable extends Component {
@@ -16,15 +15,14 @@ export default class StudentTable extends Component {
 
   render() {
     let { students ,} = this.props.students;
-    const {onDeleteStudents,onCreateGPA} = this.props
+    const {onDeleteStudents,} = this.props
+    
     //Chỗ này sắp xếp lại cái students
     switch (this.state.sortType) {
       case 1:
+      // sắp xếp lại student theo GPA down
         break;
-      
-        // sắp xếp lại student theo GPA up
-
-        
+ 
       case 2:
         break;
       
@@ -56,10 +54,10 @@ export default class StudentTable extends Component {
                 onChange={this.onSortChange}
               >
                 <option value={null} selected>
-                  Sort student
+                  Sort 
                 </option>
-                <option value={1}>GPA tăng dần</option>
-                <option value={2}>GPA giảm dần</option>
+                <option value={1}>ĐTB tăng dần</option>
+                <option value={2}>ĐTB giảm dần</option>
                 <option value={3}>Họ tên</option>
               </select>
             </th>
