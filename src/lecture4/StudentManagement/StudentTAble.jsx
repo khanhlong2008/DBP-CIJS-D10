@@ -1,5 +1,8 @@
-
 import React, { Component } from "react";
+
+const GPA_UP = 2;
+const GPA_DOWN = 3;
+const NAME = 4;
 
 export default class StudentTable extends Component {
   state = {
@@ -14,29 +17,34 @@ export default class StudentTable extends Component {
   };
 
   render() {
-    let { students ,} = this.props.students;
-    const {onDeleteStudents,} = this.props
-    
-    //Chỗ này sắp xếp lại cái students
-    switch (this.state.sortType) {
-      case 1:
-      // sắp xếp lại student theo GPA down
+    let { students } = this.props.students;
+    const { onDeleteStudents } = this.props;
+    students = students.map((students) => {
+      const { id, email, fullname, phoneNumber, Toan, Ly, Hoa } = students;
+      const GPA = (parseFloat(Toan) + parseFloat(Ly) + parseFloat(Hoa)) / 3;
+      return {
+        id,
+        email,
+        fullname,
+        phoneNumber,
+        GPA: Math.round(GPA, 1),
+      };
+    });
+    // console.log(students);
+    switch (+this.state.sortType) {
+      case GPA_UP:
+        students.sort((a, b) => a.GPA - b.GPA);
         break;
- 
-      case 2:
+      case GPA_DOWN:
+        students.sort((a, b) => b.GPA - a.GPA);
         break;
-      
-        // sắp xếp lại student theo GPA up
-
-        
-      case 3:
+      case NAME:
+        students.sort((a, b) => {
+          return a.fullname.localeCompare(b.fullname);
+        });
         break;
-      
-        // sắp xếp lại student theo alphabet
-
-       
-
       default:
+        break;
     }
     return (
       <table className="table">
@@ -54,11 +62,11 @@ export default class StudentTable extends Component {
                 onChange={this.onSortChange}
               >
                 <option value={null} selected>
-                  Sort 
+                  Sort
                 </option>
-                <option value={1}>ĐTB tăng dần</option>
-                <option value={2}>ĐTB giảm dần</option>
-                <option value={3}>Họ tên</option>
+                <option value={GPA_UP}>ĐTB tăng dần</option>
+                <option value={GPA_DOWN}>ĐTB giảm dần</option>
+                <option value={NAME}>Họ tên</option>
               </select>
             </th>
           </tr>
@@ -66,7 +74,7 @@ export default class StudentTable extends Component {
         <tbody>
           {students.length > 0 ? (
             students.map((StudentItem) => {
-              const { id, email, phoneNumber, fullname , Toan ,Ly ,Hoa} =
+              const { id, email, phoneNumber, fullname,GPA} =
                 StudentItem;
               return (
                 <tr key={id}>
@@ -75,12 +83,11 @@ export default class StudentTable extends Component {
                   <td>{phoneNumber}</td>
                   <td>{email}</td>
                   <td>
-                   {/* {onCreateGPA(StudentItem)} */}
-                   {parseFloat((parseInt(Toan) + parseInt(Ly) + parseInt(Hoa)) / 3).toFixed(1)}
+                    {GPA}
                   </td>
                   <td>
                     <button
-                      type="submit"
+                      
                       className="btn btn-primary "
                       onClick={() => onDeleteStudents(StudentItem, id)}
                     >

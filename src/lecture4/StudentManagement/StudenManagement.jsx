@@ -12,14 +12,26 @@ export default class StudentManagement extends Component {
       students: [...this.state.students, student],
     });
   };
-
-  onDeleteStudents = (stu, id) => {
-    const students = this.state.students;
-    const studentRemove = stu;
-    const newStudents = students.filter((item) => item !== studentRemove);
-    this.setState({
-      students: newStudents,
+  findIndex = (id) => {
+    var { students } = this.state;
+    var result = -1;
+    students.forEach((tasks, index) => {
+      if (students.id === id) {
+        result = students;
+      }
     });
+    return result;
+  };
+  onDeleteStudents = (stu, id) => {
+    const {students} = this.state
+    var index = this.findIndex(id);
+    if (index !== -1) {
+      students.slice(index, 1);
+      this.setState({
+        students: students,
+      });
+    }
+    console.log(students)
   };
  
   render() {

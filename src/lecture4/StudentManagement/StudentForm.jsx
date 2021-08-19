@@ -9,7 +9,6 @@ export default class StudentForm extends Component {
     Toan: "",
     Ly: "",
     Hoa: "",
-    GPA:"",
   };
 
   onChangeHandler = (event) => {
@@ -25,7 +24,7 @@ export default class StudentForm extends Component {
     this.props.onAddStudent(this.state);
   };
   render() {
-    
+    const {id,email,fullname,phoneNumber,Toan,Ly,Hoa} = this.state
     return (
       <div>
         <form onSubmit={this.onSubmitHandler}>
@@ -40,6 +39,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={id}
                 />
               </div>
             </div>
@@ -53,6 +53,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={fullname}
                 />
               </div>
             </div>
@@ -66,6 +67,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={phoneNumber}
                 />
               </div>
             </div>
@@ -79,6 +81,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={email}
                 />
               </div>
             </div>
@@ -92,6 +95,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={Toan}
                 />
               </div>
             </div>
@@ -105,6 +109,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={Ly}
                 />
               </div>
             </div>
@@ -118,6 +123,7 @@ export default class StudentForm extends Component {
                   className="form-control"
                   aria-describedby="helpId"
                   onChange={this.onChangeHandler}
+                  value={Hoa}
                 />
               </div>
             </div>

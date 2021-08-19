@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
-import QuizzQuestionApp from "./lecture4/CIMidterm/QuizzQuestionApp";
-// import StudentManagement from "./lecture4/StudentManagement/StudenManagement";
+// import QuizzQuestionApp from "./lecture4/CIMidterm/QuizzQuestionApp";
+import StudentManagement from "./lecture4/StudentManagement/StudenManagement";
 // import TodoApp from "./lecture4/Todo/TodoApp";
 // import LDMajor from "./lecture4/Burger/LDMajor";
 // import Car from "./lecture4/Car/Car";
@@ -15,8 +15,8 @@ class App extends Component {
         {/* <SmartphoneStore /> */}
         {/* <LDMajor/> */}
         {/* <TodoApp/> */}
-        {/* <StudentManagement/> */}
-        <QuizzQuestionApp/>
+        <StudentManagement/>
+        {/* <QuizzQuestionApp/> */}
       </div>
     );
   }
