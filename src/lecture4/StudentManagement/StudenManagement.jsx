@@ -15,18 +15,18 @@ export default class StudentManagement extends Component {
   findIndex = (id) => {
     var { students } = this.state;
     var result = -1;
-    students.forEach((tasks, index) => {
+    students.forEach((students, index) => {
       if (students.id === id) {
-        result = students;
+        result = index;
       }
     });
     return result;
   };
-  onDeleteStudents = (stu, id) => {
-    const {students} = this.state
+  onDeleteStudents = (id) => {
+    var {students} = this.state
     var index = this.findIndex(id);
     if (index !== -1) {
-      students.slice(index, 1);
+      students.splice(index, 1);
       this.setState({
         students: students,
       });
@@ -35,6 +35,7 @@ export default class StudentManagement extends Component {
   };
  
   render() {
+    const {students} = this.state
     return (
       <div className="container">
         <h1 className="text-center text-primary display-4">
@@ -43,7 +44,7 @@ export default class StudentManagement extends Component {
 
         <StudentForm onAddStudent={this.onAddStudent} />
         <StudentTable
-          students={this.state}
+          students={students}
           onDeleteStudents={this.onDeleteStudents}
         />
       </div>

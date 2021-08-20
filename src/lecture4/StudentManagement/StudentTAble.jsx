@@ -15,10 +15,11 @@ export default class StudentTable extends Component {
       sortType: e.target.value,
     });
   };
-
+  onDeleteStudents = ()=>{
+    this.props.onDeleteStudents(this.props.students.id)
+  }
   render() {
-    let { students } = this.props.students;
-    const { onDeleteStudents } = this.props;
+    let { students } = this.props;
     students = students.map((students) => {
       const { id, email, fullname, phoneNumber, Toan, Ly, Hoa } = students;
       const GPA = (parseFloat(Toan) + parseFloat(Ly) + parseFloat(Hoa)) / 3;
@@ -89,7 +90,7 @@ export default class StudentTable extends Component {
                     <button
                       
                       className="btn btn-primary "
-                      onClick={() => onDeleteStudents(StudentItem, id)}
+                      onClick={this.onDeleteStudents}
                     >
                       Delete
                     </button>
