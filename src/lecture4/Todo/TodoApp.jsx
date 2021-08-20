@@ -1,4 +1,4 @@
-/* eslint-disable no-unreachable */
+
 import { Component } from "react";
 import TodoList from "./TodoList";
 import "./../Todo/style.css";
@@ -15,16 +15,28 @@ class TodoApp extends Component {
         { id: 3, title: "Dắt gấu đi dạo", isCompleted: false },
         { id: 4, title: "Trade coin", isCompleted: false },
       ],
+      keywork:'',
     };
   }
+  onSearch = (keywork)=>{
+    this.setState({
+      keywork:keywork
+    })
+  }
   render() {
-    const { todos } = this.state;
+   
+    let { todos,keywork } = this.state;
+    if(keywork){
+      todos = todos.filter((todos)=>{
+        return todos.title.toLowerCase().indexOf(keywork) !== -1;
+      })
+    }
     return (
       <>
         <section className="center">
           <div method="post">
             <h4>FILLER TASKS (BY NAME)</h4>
-            <FillerTodo />
+            <FillerTodo onSearch={this.onSearch}/>
             <h4>TODO</h4>
             <TodoList todos={todos} onDeleteTodoItem={this.onDeleteTodoItem} />
             <h4>ADD ITEM</h4>
@@ -63,6 +75,7 @@ class TodoApp extends Component {
     });
     console.log(todo)
   };
+  
   
 }
 export default TodoApp;
