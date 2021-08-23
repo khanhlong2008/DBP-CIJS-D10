@@ -37,6 +37,9 @@ class AddTodo extends Component {
   onSubmitHandler = (e) => {
     e.preventDefault();
     this.props.onAddTodoItem(this.state);
+    this.setState({
+      title: ""
+    })
   };
 }
 export default AddTodo;

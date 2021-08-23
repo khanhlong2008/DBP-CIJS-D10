@@ -33,7 +33,7 @@ class TodoApp extends Component {
     }
     return (
       <>
-        <section className="center">
+        <section className="center container">
           <div method="post">
             <h4>FILLER TASKS (BY NAME)</h4>
             <FillerTodo onSearch={this.onSearch}/>
