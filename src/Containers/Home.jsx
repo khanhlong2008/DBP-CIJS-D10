@@ -15,6 +15,7 @@ class Home extends Component {
       this.setState({
         users: response.data.items,
       });
+      // console.log(response)
     } catch (err){
       console.log(err);
     }

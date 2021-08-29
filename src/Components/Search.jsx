@@ -32,8 +32,8 @@ class Search extends Component {
               onChange={this.onSearchChange}
             />
             <button
-              type="button"
-              className="btn btn-primary size position-relative"
+              type="submit"//type phai la submit
+              className="btn btn-secondary size position-relative"
             >
               Search
             </button>

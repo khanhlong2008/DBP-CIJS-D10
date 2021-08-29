@@ -7,5 +7,4 @@ const userAPI = {
     return axios.get(`${baseURL}/search/users?q=${search}`);
   },
 };
-
 export default userAPI;
