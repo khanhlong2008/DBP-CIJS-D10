@@ -1,29 +1,29 @@
 import About from "../Containers/About";
 import Home from "../Containers/Home";
 import NotFound from "../Containers/NotFound";
-import UserDetail from './../Components/UserDetail'
+import UserDetail from '../Containers//UserDetail'
 
 
 const routes = [
     {
         path:"/",
         exact:true,
-        main: () => <Home/>
+        main: (props) => <Home {...props}/>
     },
     {
         path:"/about",
         exact:false,
-        main: () => <About/>
+        main: (props) => <About {...props}/>
     },
     {
         path:"/users/:login",
         exact:false,
-        main: () => <UserDetail/>
+        main: (props) => <UserDetail {...props}/>
     },
     {
         path:"",
         exact:false,
-        main: () => <NotFound/>
+        main: (props) => <NotFound {...props}/>
     },
 ]
 
