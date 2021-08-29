@@ -5,7 +5,7 @@ class Users extends Component {
   render() {
     var { users } = this.props;
     return (
-      <div className="row container">
+      <div className="row ">
         {users.map((userItem, index) => {
           return <UserItem key={index} users={userItem} />;
         })}

@@ -6,6 +6,7 @@
     border-radius: 50%;
 }
 .userItem{
+    width: 100%;
     border: dotted 1px;
-    padding: 5px;
+    padding: 10px;
 }
