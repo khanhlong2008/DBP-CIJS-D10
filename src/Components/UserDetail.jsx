@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./../Styles/UserDetail.css";
 import { useHistory } from "react-router-dom";
 
@@ -7,7 +7,7 @@ const UserDetails = (props) =>{
 
     const history = useHistory();
     const onBackToHome = ()=>{
-      history.goBack(`https://api.github.com/search/users?q=${users.login}`)
+      history.goBack();
     }
     return (
       <div className="container">
