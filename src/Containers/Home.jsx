@@ -1,30 +1,28 @@
 import React, { Component } from "react";
-import Search from "../Components/Search";
-import Users from "../Components/Users";
-import UserAPI from "./../API/User";
+import userAPI from "../API/User";
+import Users from "./../Components/Users";
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
+     
     };
   }
-  onFetchUser = async (search) => {
+  async componentDidMount() {
     try {
-      const response = await UserAPI.fetchUser(search);
+      const reponse = await userAPI.fetchSearchUser();
       this.setState({
-        users: response.data.items,
+        users: reponse.data,
       });
-      // console.log(response)
-    } catch (err){
+    } catch (err) {
       console.log(err);
     }
-  };
+  }
   render() {
-      const {users}= this.state
+    const { users } = this.state;
     return (
-      <div>
-        <Search onFetchUser={this.onFetchUser} />
+      <div className="mt-3">
         <Users users={users}/>
       </div>
     );

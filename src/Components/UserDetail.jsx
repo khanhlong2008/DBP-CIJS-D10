@@ -4,10 +4,12 @@ import { useHistory } from "react-router-dom";
 
 const UserDetails = (props) =>{
   const { repos, users } = props;
-
+  // const {login} = users
     const history = useHistory();
     const onBackToHome = ()=>{
-      history.goBack();
+      var name = users.login
+      history.goBack(`https://api.github.com/users?q=${name}`);
+      // 
     }
     return (
       <div className="container">

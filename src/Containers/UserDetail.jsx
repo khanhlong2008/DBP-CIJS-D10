@@ -26,8 +26,8 @@ class UserDetail extends Component {
   render() {
     const {users} = this.state;
     const {repos} = this.state
-    console.log(users)
-    console.log(repos)
+    // console.log(users)
+    // console.log(repos)
     return <div>
         <UserDetails users={users} repos={repos}/>
     </div>;

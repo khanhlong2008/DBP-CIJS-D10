@@ -2,6 +2,7 @@ import About from "../Containers/About";
 import Home from "../Containers/Home";
 import NotFound from "../Containers/NotFound";
 import UserDetail from '../Containers//UserDetail'
+import SearchUser from "../Containers/Search";
 
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
         path:"/about",
         exact:false,
         main: (props) => <About {...props}/>
+    },
+    {
+        path:"/search",
+        exact:false,
+        main: (props) => <SearchUser {...props}/>
     },
     {
         path:"/users/:login",

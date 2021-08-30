@@ -9,5 +9,10 @@ const navMenu = [
       to: "/about",
       exact: false,
     },
+    {
+      name: "Search",
+      to: "/search",
+      exact: false,
+    },
   ];
  export default navMenu 
