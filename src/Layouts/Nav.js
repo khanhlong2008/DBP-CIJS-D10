@@ -25,7 +25,7 @@ const NavLink = ({ label, to, activeOnlyWhenExact }) => {
 class Nav extends Component {
   render() {
     return (
-      <nav className=" navbar-expand navbar-light bg-secondary">
+      <nav className=" navbar-expand navbar-light bg-primary">
         <ul className="nav navbar-nav">{this.ShowNavMenu(navMenu)}</ul>
       </nav>
     );
