@@ -1,8 +1,8 @@
 import React from "react";
 
-const Loading =  ({isloading})=> {
+const Loading =  ({isLoading})=> {
   
-   if(isloading){
+   if(isLoading){
     return (
       <div>
         <img
