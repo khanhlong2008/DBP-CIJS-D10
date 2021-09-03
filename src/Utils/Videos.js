@@ -11,6 +11,9 @@ const API = {
     },
     fetchVideoRatedAPI: ()=>{
         return axios.get(`${baseURL}top_rated?api_key=${key}`)
+    },
+    fetchActorAndVideo: () =>{
+        
     }
 }
 export default API

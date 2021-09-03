@@ -37,14 +37,14 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 400px;
-    height: 750px;
+    width: 300px;
+    height: 650px;
     margin-bottom: 20px;
     /* background-color: rgb(32, 20, 20); */
 }
 .movieItem >img{
-    width: 400px;
-    height: 600px;
+    width: 300px;
+    height: 500px;
     border-radius: 2%;
     object-fit: cover;
     flex-shrink: 0;
