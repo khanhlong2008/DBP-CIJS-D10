@@ -1,16 +1,16 @@
 const Menu = [
     {
-      name: "PHỔ BIẾN",
+      name: "POPULAR",
       to: "/",
       exact: true,
     },
     {
-      name: "SẮP CHIẾU",
+      name: "UPCOMING",
       to: "/coming",
       exact: false,
     },
     {
-      name: "NHIỀU LƯỢT XEM",
+      name: "TO RATED",
       to: "/rated",
       exact: false,
     },

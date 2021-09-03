@@ -1,49 +1,46 @@
 import React, { Component } from "react";
 import API from "../Utils/Videos";
-import MovieItem from "./MovieItem";
-class MovieList extends Component {
+import MovieRated from "./MovieRated";
+class MovieListRated extends Component {
   constructor(props){
     super(props)
     this.state={
       popular:[],
       coming:[],
+      rated:[],
     }
   }
   async componentDidMount (){
     try{
       const reponsePopular = await API.fetchVideoPopularAPI();
       const reponseComing = await API.fetchVideoComingAPI();
+      const reponseRated = await API.fetchVideoRatedAPI();
       this.setState({
         popular: reponsePopular.data.results,
         coming: reponseComing.data.results,
+        rated: reponseRated.data.results
       })
-      console.log(this.state)
+      // console.log(this.state)
     }catch(err){
       console.log(err)
     }
   }
   render() {
-    const {popular,coming} = this.state
+    const {rated} = this.state
     return (
-      <div className="movieList container">
-        
-        {popular.map((popularItem,index)=>{
+      <>
+      <div className="movieList center">
+         {rated.map((ratedItem,index)=>{
           return(
-            <MovieItem 
+            <MovieRated 
             key={index} 
-            popular={popularItem}/>
+            rated={ratedItem}/>
           )
-        })},
-        {/* {coming.map((comingItem,index)=>{
-          return(
-            <MovieItem 
-            key={index} 
-            coming={comingItem}/>
-          )
-        })} */}
+        })}
       </div>
+      </>
     );
   }
 }
 
-export default MovieList;
+export default MovieListRated;

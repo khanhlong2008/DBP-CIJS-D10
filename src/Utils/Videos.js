@@ -8,6 +8,9 @@ const API = {
     },
     fetchVideoComingAPI: ()=>{
         return axios.get(`${baseURL}upcoming?api_key=${key}`)
+    },
+    fetchVideoRatedAPI: ()=>{
+        return axios.get(`${baseURL}top_rated?api_key=${key}`)
     }
 }
 export default API

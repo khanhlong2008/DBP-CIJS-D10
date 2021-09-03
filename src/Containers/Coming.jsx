@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Search from '../Components/Search';
-import MovieList from "./../Components/MovieList";
+import MovieListComing from '../Components/MovieListComing';
 class Coming extends Component {
     render() {
         return (
             <div>
-                <Search/>
-                <MovieList/>
+                <MovieListComing/>
             </div>
         );
     }

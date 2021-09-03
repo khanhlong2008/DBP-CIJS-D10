@@ -4,7 +4,7 @@ class Search extends Component {
   render() {
     return (
       <div className="container">
-        <form className="search">
+        <form className="search container">
           <input type="text" className="form-control"/>
           <button className="btn btn-primary">Search</button>
         </form>

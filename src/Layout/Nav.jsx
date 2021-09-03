@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Component } from 'react';
-import Menu from '../Contants/Menu';
+import React, { Component } from "react";
+import Menu from "../Contants/Menu";
 import { Link, Route } from "react-router-dom";
-import './../Styles/App.css'
+import "./../Styles/App.css";
 const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
   return (
     <Route
@@ -22,36 +22,39 @@ const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
   );
 };
 class Nav extends Component {
-    render() {
+  render() {
+    return (
+      <nav className="navbar  nav-bar ">
+        <div className="navbar-header">
+          <Link to="/">
+            <i className="fas fa-film fa-3x"></i>
+          </Link>
+          <Link to="/" className="navbar-brand cursor">
+            REACT-MOVIE
+          </Link>
+        </div>
+        <div className="collapse navbar-collapse navbar-ex1-collapse">
+          <ul className="nav navbar-nav">{this.ShowMenu(Menu)}</ul>
+        </div>
+      </nav>
+    );
+  }
+  ShowMenu = (Menu) => {
+    var result = null;
+    if (Menu.length > 0) {
+      result = Menu.map((MenuItem, index) => {
         return (
-            <nav className="navbar  nav-bar ">
-            <div className="navbar-header ">
-              <a className="navbar-brand cursor">REACT-MOVIE</a>
-            </div>
-            <div className="collapse navbar-collapse navbar-ex1-collapse">
-              <ul className="nav navbar-nav">
-                {this.ShowMenu(Menu)}
-              </ul>
-            </div>
-          </nav>
+          <MenuLink
+            key={index}
+            to={MenuItem.to}
+            activeOnlyWhenExact={MenuItem.exact}
+            label={MenuItem.name}
+          />
         );
+      });
     }
-    ShowMenu = (Menu)=>{
-      var result = null;
-      if(Menu.length >0){
-        result =  Menu.map((MenuItem,index)=>{
-          return(
-            <MenuLink
-              key={index}
-              to={MenuItem.to}
-              activeOnlyWhenExact={MenuItem.exact}
-              label={MenuItem.name}
-            />
-          )
-        })
-      };
-      return result;
-    }
+    return result;
+  };
 }
 
 export default Nav;
