@@ -1,23 +1,11 @@
-import Popular from './../Containers/Popular'
-import Coming from './../Containers/Coming'
-import Rated from './../Containers/Rated'
-
+import Home from '../Containers/Home'
 
 const routes = [
     {
         path:"/",
         exact:true,
-        main: (props) => <Popular {...props}/>
+        main: (props) => <Home {...props}/>
     },
-    {
-        path:"/coming",
-        exact:false,
-        main: (props) => <Coming {...props}/>
-    },
-    {
-        path:"/rated",
-        exact:false,
-        main: (props) => <Rated {...props}/>
-    },
+    
 ]
 export default routes

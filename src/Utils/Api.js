@@ -3,17 +3,14 @@ import axios from 'axios'
 const baseURL = 'https://api.themoviedb.org/3/movie/';
 const key = '3ba5b9600d3f397ae088ef6cd0efecfb'
 const API = {
-    fetchVideoPopularAPI: ()=>{
+    fetchPopularAPI: ()=>{
         return axios.get(`${baseURL}popular?api_key=${key}`)
     },
-    fetchVideoComingAPI: ()=>{
+    fetchComingAPI: ()=>{
         return axios.get(`${baseURL}upcoming?api_key=${key}`)
     },
-    fetchVideoRatedAPI: ()=>{
+    fetchRatedAPI: ()=>{
         return axios.get(`${baseURL}top_rated?api_key=${key}`)
     },
-    fetchActorAndVideo: () =>{
-        
-    }
 }
 export default API

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import Nav from "./Layout/Nav";
-import Search from './Components/Search';
+// import Search from './Components/Search';
 import "./Styles/App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "./Contants/Routes";
@@ -12,8 +12,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Nav/>
-          <Search/>
-
+          {/* <Search/> */}
           <Switch>{this.ShowContent(routes)}</Switch>
         </Router>
       </div>

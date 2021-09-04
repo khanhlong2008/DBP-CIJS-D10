@@ -1,27 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import Menu from "../Contants/Menu";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./../Styles/App.css";
-const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
-  return (
-    <Route
-      path={to}
-      exact={activeOnlyWhenExact}
-      children={({ match }) => {
-        var active = match ? "active" : "";
-        return (
-          <li className={active}>
-            <Link to={to} className="cursor">
-              {label}
-            </Link>
-          </li>
-        );
-      }}
-    />
-  );
-};
 class Nav extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      flag:0,
+    }
+  }
   render() {
     return (
       <nav className="navbar  nav-bar ">
@@ -33,28 +20,23 @@ class Nav extends Component {
             REACT-MOVIE
           </Link>
         </div>
-        <div className="collapse navbar-collapse navbar-ex1-collapse">
-          <ul className="nav navbar-nav">{this.ShowMenu(Menu)}</ul>
-        </div>
+        {/* <div className="collapse navbar-collapse navbar-ex1-collapse">
+          <ul className="nav navbar-nav">
+            <li className="cursor">
+              <Link to="/">POPULAR</Link>
+            </li>
+            <li className="cursor">
+              <Link to="/">UPCOMING</Link>
+            </li>
+            <li className="cursor">
+              <Link to="/">TO RATED</Link>
+            </li>
+          </ul>
+        </div> */}
       </nav>
     );
   }
-  ShowMenu = (Menu) => {
-    var result = null;
-    if (Menu.length > 0) {
-      result = Menu.map((MenuItem, index) => {
-        return (
-          <MenuLink
-            key={index}
-            to={MenuItem.to}
-            activeOnlyWhenExact={MenuItem.exact}
-            label={MenuItem.name}
-          />
-        );
-      });
-    }
-    return result;
-  };
+
 }
 
 export default Nav;
