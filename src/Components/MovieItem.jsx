@@ -7,7 +7,7 @@ class MovieItem extends Component {
     const {poster_path,original_title,vote_average,release_date,original_language} = this.props.popular
     return (
       <>
-        <div className="movieItem">
+        <div className="movieItem ">
           <img src={IMG_URL + poster_path} ></img>
           <div className="movie-info">
             <div className="title-rate">

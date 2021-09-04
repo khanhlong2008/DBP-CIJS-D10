@@ -6,7 +6,7 @@ class Search extends Component {
       <div className="container">
         <form className="search container">
           <input type="text" className="form-control"/>
-          <button className="btn btn-primary">Search</button>
+          <button className="btn btn-info">Search</button>
         </form>
       </div>
     );
