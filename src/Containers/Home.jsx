@@ -2,7 +2,7 @@
 /* eslint-disable default-case */
 import React, { Component } from "react";
 import MovieHomeList from "../Components/MovieHomeList";
-// import API from "../Utils/Api";
+import API from "../Utils/Api";
 import Search from "./../Components/Search";
 import Tab from "./../Components/Tab";
 
@@ -10,49 +10,45 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // coming: [],
-      // rated:[],
-      // popular:[],
+      show:[],
       status:0,
     };
   }
-  onfetch =  (action) =>{
-    if(action === 'popular'){
-      // const reponsePopular = await API.fetchPopularAPI();
+    async componentDidMount() {
+    try {
+      const reponsePopular = await API.fetchPopularAPI();
       this.setState({
-        // popular:reponsePopular.data.results,
-        status:0,
-        // rated:null,
-        // coming:null,
+        show: reponsePopular.data.results,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
+  onfetch = async (action) =>{
+    if(action === 'popular'){
+      const reponsePopular = await API.fetchPopularAPI();
+      this.setState({
+        show:reponsePopular.data.results,
       })
     }else if(action === 'coming'){
-      // const reponseComing = await API.fetchComingAPI();
+      const reponseComing = await API.fetchComingAPI();
       this.setState({
-        // coming: reponseComing.data.results,
-        status:1,
-        // popular:null,
-        // rated:null,
+        show: reponseComing.data.results,
       })
     }else{
-      // const reposeRate = await API.fetchRatedAPI();
+      const reposeRate = await API.fetchRatedAPI();
       this.setState({
-        // rated: reposeRate.data.results,
-        status:-1,
-        // coming:null,
-        // popular:null,
+        show: reposeRate.data.results,
       })
     }
   }
-
   render() {
-    // console.log(this.state)
-    const {status} = this.state
-    // console.log(status)
     return (
       <div>
         <Search />
         <Tab onfetch={this.onfetch} />
-        <MovieHomeList  status={status}/>
+        <MovieHomeList  {...this.state}/>
       </div>
     );
   } 
