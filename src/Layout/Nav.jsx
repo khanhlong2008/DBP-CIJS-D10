@@ -17,22 +17,9 @@ class Nav extends Component {
             <i className="fas fa-film fa-3x"></i>
           </Link>
           <Link to="/" className="navbar-brand cursor">
-            REACT-MOVIE
+            HOME | REACT-MOVIE
           </Link>
         </div>
-        {/* <div className="collapse navbar-collapse navbar-ex1-collapse">
-          <ul className="nav navbar-nav">
-            <li className="cursor">
-              <Link to="/">POPULAR</Link>
-            </li>
-            <li className="cursor">
-              <Link to="/">UPCOMING</Link>
-            </li>
-            <li className="cursor">
-              <Link to="/">TO RATED</Link>
-            </li>
-          </ul>
-        </div> */}
       </nav>
     );
   }

@@ -12,5 +12,11 @@ const API = {
     fetchRatedAPI: ()=>{
         return axios.get(`${baseURL}top_rated?api_key=${key}`)
     },
+    fecthIdDetail: (id)=>{
+        return axios.get(`${baseURL}/${id}?api_key=${key}`)
+    },
+    fecthActorDetail: (id)=>{
+        return axios.get(`${baseURL}/${id}/credits?api_key=${key}`)
+    }
 }
 export default API

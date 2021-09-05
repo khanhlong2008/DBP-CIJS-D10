@@ -1,7 +1,7 @@
 /* eslint-disable no-self-assign */
 /* eslint-disable default-case */
 import React, { Component } from "react";
-import BackDrop from "../Components/BackDrop";
+import BackDropHome from "../Components/BackDropHome";
 import MovieHomeList from "../Components/MovieHomeList";
 import API from "../Utils/Api";
 import Search from "./../Components/Search";
@@ -46,7 +46,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <BackDrop/>
+        <BackDropHome/>
         <Search />
         <Tab onfetch={this.onfetch} />
         <MovieHomeList  {...this.state}/>

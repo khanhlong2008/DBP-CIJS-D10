@@ -21,11 +21,11 @@ body {
   background-color: var(--secondary-color);
   height: 70px;
 }
-a:hover {
+/* .navbar-brand a:hover {
   font-weight: 700;
   background-color: rgb(0, 195, 255);
   border-radius: 10px;
-}
+} */
 
 .center-tab {
   justify-content: center;
@@ -100,7 +100,7 @@ a:hover {
   flex: 1;
 }
 .search {
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
@@ -132,5 +132,109 @@ a:hover {
 .backDrop {
   width: 100%;
   height: 600px;
-  border: 1px red solid;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px red solid; */
+}
+.backDrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.color-overlay {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-overView {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: rgb(59, 51, 51);
+  border-radius: 2%;
+  width: 900px;
+  height: 500px;
+}
+.title-overView h6 {
+  width: 500px;
+  color: rgb(247, 247, 247);
+  font-size: large;
+  font-weight: 500;
+}
+h1 {
+  color: rgb(255, 255, 255);
+  z-index: 1;
+}
+.title-overView img{
+  border-radius: 2%;
+  opacity: 1;
+
+}
+.title-overView img:hover{
+  -moz-box-shadow: 3px 3px 5px 6px rgb(8, 7, 7);
+  -webkit-box-shadow: 3px 3px 5px 6px rgb(12, 8, 8);
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+.title-ovewiew--item {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.info {
+  width: 100%;
+  height: 90px;
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+.infoItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.infoItem h3 {
+  margin-left: 10px;
+}
+.cards {
+  margin: 30px 300px 0px 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.shadow {
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 5px;
+}
+.card-item {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.card-item img {
+  width: 100%;
+  border-radius: 2%;
+}
+.card-item h3 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: #ffff;
 }
