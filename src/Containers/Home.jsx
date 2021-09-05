@@ -43,16 +43,28 @@ class Home extends Component {
       })
     }
   }
+  onFetchSearch = async (search)=>{
+    console.log(search)
+    try{
+      const reponse = await API.fetchSearchApi(search);
+      console.log(reponse)
+      this.setState({
+        show:reponse.data.results
+      })
+    }catch(err){
+      console.log(err)
+    }
+    console.log(this.state)
+  }
   render() {
     return (
       <div>
         <BackDropHome/>
-        <Search />
+        <Search onFetchSearch={this.onFetchSearch}/>
         <Tab onfetch={this.onfetch} />
         <MovieHomeList  {...this.state}/>
       </div>
     );
   } 
 }
-
 export default Home;

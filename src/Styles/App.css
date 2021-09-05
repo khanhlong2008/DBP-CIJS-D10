@@ -173,16 +173,15 @@ h1 {
   color: rgb(255, 255, 255);
   z-index: 1;
 }
-.title-overView img{
+.title-overView img {
   border-radius: 2%;
   opacity: 1;
-
 }
-.title-overView img:hover{
-  -moz-box-shadow: 3px 3px 5px 6px rgb(8, 7, 7);
-  -webkit-box-shadow: 3px 3px 5px 6px rgb(12, 8, 8);
+/* .title-overView img:hover {
+  -moz-box-shadow: 3px 3px 5px 6px #cccccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #cccc;
   box-shadow: 3px 3px 5px 6px #ccc;
-}
+} */
 .title-ovewiew--item {
   margin-left: 30px;
   display: flex;
@@ -237,4 +236,8 @@ h1 {
   justify-content: center;
   display: flex;
   color: #ffff;
+}
+.video{
+  text-align: center ;
+  margin-top: 10px;
 }

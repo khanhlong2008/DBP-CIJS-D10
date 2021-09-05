@@ -8,6 +8,7 @@ class Detail extends Component {
     this.state = {
       backDrop: [],
       actor: [],
+      video: [],
     };
   }
   async componentDidMount() {
@@ -15,19 +16,25 @@ class Detail extends Component {
     try {
       const reponseBackDrop = await API.fecthIdDetail(id);
       const reponseActor = await API.fecthActorDetail(id);
+      const reponseVideo = await API.fetchVideoAPI(id);
       this.setState({
         backDrop: reponseBackDrop.data,
         actor: reponseActor.data.cast,
+        video: reponseVideo.data.results,
       });
     } catch (err) {
       console.log(err);
     }
+    const keyx = this.state.video[0];
+    this.setState({
+      video: keyx,
+    });
+    // console.log(keyx)
   }
   render() {
     return (
       <div>
         <MovieDetail {...this.state} />
-
       </div>
     );
   }
