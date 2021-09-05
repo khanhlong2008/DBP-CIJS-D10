@@ -12,6 +12,7 @@ class Home extends Component {
     super(props);
     this.state = {
       show:[],
+      status:"Popular"
     };
   }
     async componentDidMount() {
@@ -19,6 +20,7 @@ class Home extends Component {
       const reponsePopular = await API.fetchPopularAPI();
       this.setState({
         show: reponsePopular.data.results,
+        status:"Popular",
       });
     } catch (err) {
       console.log(err);
@@ -30,16 +32,19 @@ class Home extends Component {
       const reponsePopular = await API.fetchPopularAPI();
       this.setState({
         show:reponsePopular.data.results,
+        status:"Popular"
       })
     }else if(action === 'coming'){
       const reponseComing = await API.fetchComingAPI();
       this.setState({
         show: reponseComing.data.results,
+        status:"Up Coming"
       })
     }else{
       const reposeRate = await API.fetchRatedAPI();
       this.setState({
         show: reposeRate.data.results,
+        status:"Top Rated"
       })
     }
   }

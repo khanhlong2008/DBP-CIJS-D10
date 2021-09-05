@@ -29,7 +29,7 @@ class Detail extends Component {
     this.setState({
       video: keyx,
     });
-    // console.log(keyx)
+    console.log(this.state.video)
   }
   render() {
     return (
