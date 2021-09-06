@@ -25,7 +25,7 @@ class Detail extends Component {
     } catch (err) {
       console.log(err);
     }
-    const keyx = this.state.video[0];
+    const keyx = this.state.video[1];
     this.setState({
       video: keyx,
     });
