@@ -62,12 +62,13 @@ class Home extends Component {
     console.log(this.state)
   }
   render() {
+    const {history} = this.props
     return (
       <div>
         <BackDropHome/>
         <Search onFetchSearch={this.onFetchSearch}/>
         <Tab onfetch={this.onfetch} />
-        <MovieHomeList  {...this.state}/>
+        <MovieHomeList  {...this.state} history={history}/>
       </div>
     );
   } 

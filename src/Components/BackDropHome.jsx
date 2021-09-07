@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import API from "../Utils/Api";
-
+import BackDropHomeItem from "./BackDropHomeItem";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 class BackDropHome extends Component {
   constructor(props) {
     super(props);
@@ -17,30 +20,35 @@ class BackDropHome extends Component {
     } catch (err) {
       console.log(err);
     }
-    const adx = this.state.show[0];
-    this.setState({
-      show: adx,
-    });
+    // const adx = this.state.show[0];
+    // this.setState({
+    //   show: adx,
+    // });
     // console.log(this.state)
   }
   render() {
-    const IMG_URL = "https://image.tmdb.org/t/p/w500";
     const { show } = this.state;
+    // console.log(show)
+    var settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000
+    };
     return (
-      <div className="backDrop">
-        <img src={IMG_URL + show.backdrop_path} alt="" />
-        <div className="color-overlay">
-          <div className="title-overView">
-            <img src={IMG_URL + show.poster_path} alt="" />
-            <div className="title-ovewiew--item">
-            <h1>{show.title}</h1>
-            <h6>
-             {show.overview}
-            </h6>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="backDropHome">
+        <Slider {...settings}>
+        {show.map((item,index)=>{
+          return <BackDropHomeItem
+            key={index}
+            item={item}
+          />
+        })}
+        
+        </Slider>
+       </div>
     );
   }
 }

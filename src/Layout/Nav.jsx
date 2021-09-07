@@ -11,7 +11,7 @@ class Nav extends Component {
   }
   render() {
     return (
-      <nav className="navbar  nav-bar ">
+      <nav className="navbar  nav-bar navbar-position">
         <div className="navbar-header">
           <Link to="/">
             <i className="fas fa-film fa-3x"></i>
