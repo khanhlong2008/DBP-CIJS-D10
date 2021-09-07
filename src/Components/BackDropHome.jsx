@@ -20,11 +20,6 @@ class BackDropHome extends Component {
     } catch (err) {
       console.log(err);
     }
-    // const adx = this.state.show[0];
-    // this.setState({
-    //   show: adx,
-    // });
-    // console.log(this.state)
   }
   render() {
     const { show } = this.state;

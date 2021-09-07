@@ -8,8 +8,8 @@ class Video extends Component {
     return (
       <div className="video">
         <iframe
-          width="1305"
-          height="700"
+          width="1190"
+          height="670"
           src={URL_VIDEO + key}
           title={name}
           frameborder="0"

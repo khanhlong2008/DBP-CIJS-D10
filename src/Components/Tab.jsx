@@ -11,6 +11,7 @@ class Tab extends Component {
         <a className="navbar-brand cursor" onClick={()=> onfetch('popular')}>POPULAR</a>
         <a className="navbar-brand cursor" onClick={()=> onfetch('coming')}>UP COMMING</a>
         <a className="navbar-brand cursor" onClick={()=> onfetch('rated')}>TOP RATED</a>
+        <a className="navbar-brand cursor" onClick={()=> onfetch('nowPlaying')}>NOW PLAYING</a>
       </nav>
     );
   }

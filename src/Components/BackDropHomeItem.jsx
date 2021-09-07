@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class BackDropHomeItem extends Component {
   render() {
-    const IMG_URL = "https://image.tmdb.org/t/p/w500";
+    const IMG_URL = "https://image.tmdb.org/t/p/original";
     const { item } = this.props;
     return (
       <div className="backDropHomeItem">
@@ -10,10 +10,10 @@ class BackDropHomeItem extends Component {
         {/* <h3>{item.title}</h3> */}
          <div className="color-overlay1">
           <div className="title-overView1">
-            <div className="title-ovewiew--item">
+            <div className="title-ovewiew--item1">
             <h1>{item.title}</h1>
             <p>
-             {item.overview}
+              {item.overview}
             </p>
             </div>
           </div>

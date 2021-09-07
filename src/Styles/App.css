@@ -21,12 +21,16 @@ body {
   z-index: 100000; 
 }
 .nav-bar {
-  margin-bottom: 5px;
-  margin-top: 10px;
+  /* margin-bottom: 5px; */
+  /* margin-top: 10px; */
   display: flex;
   align-items: center;
   background-color: transparent;
   height: 70px;
+}
+.navbar-brand{
+  color: #ffff;
+  font-size: 20px;
 }
 .h1{
   margin-left: 350px;
@@ -125,7 +129,7 @@ body {
   height: 50px;
 }
 .navbar-header {
-  margin-left: 10px;
+  margin-left: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -140,7 +144,7 @@ body {
 }
 .backDrop {
   width: 100%;
-  height: 600px;
+  height: 800px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -150,28 +154,28 @@ body {
 .backDrop img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 .backDropHome{
-  margin: 0px 0px 0px 0px;
-  justify-content: space-around;
- 
+  /* max-width: 50%; */
+  padding-right: 30px;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .backDropHomeItem{
   display: flex;
   flex-direction: column;
-  align-items: center;
   color: #ffff;
-  height: 700px;
+  height: 800px;
   position: relative;
-  /* justify-content: center; */
+  
 }
 .backDropHomeItemImg{
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
+  object-fit:fill;
 }
 .backDropHomeItem h3{
   flex: 1;
@@ -179,7 +183,7 @@ body {
 .color-overlay {
   width: 100%;
   height: 100%;
-  background: #000;
+  background: rgb(0, 0, 0);
   opacity: 0.7;
   position: absolute;
   display: flex;
@@ -189,29 +193,29 @@ body {
 .color-overlay1 {
   width: 100%;
   height: 100%;
-  background: #000;
+  background: rgb(36, 35, 35);
   opacity: 0.7;
   position: absolute;
   display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 10px;
 }
 .title-overView1 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgb(141, 135, 135);
+  justify-content: space-between;
+  align-items: flex-start;
+  /* background: rgb(141, 135, 135); */
   border-radius: 2%;
   width: 900px;
   height: 500px;
 }
 .title-overView1 p {
-  width: 500px;
+  width: 1000px;
   color: rgb(247, 247, 247);
   font-size: 18px;
   font-weight: 500;
+  margin-left: 20px;
 }
 .title-overView {
   display: flex;
@@ -221,7 +225,7 @@ body {
   background: rgb(59, 51, 51);
   border-radius: 2%;
   width: 900px;
-  height: 500px;
+  height: 550px;
 }
 .title-overView h6 {
   width: 500px;
@@ -248,6 +252,16 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.title-ovewiew--item1 {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 315px;
+}
+.title-ovewiew--item1 h1 {
+  /* margin-bottom: 380px; */
+  font-size: 50px;
 }
 .info {
   width: 100%;

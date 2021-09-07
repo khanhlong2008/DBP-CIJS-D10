@@ -40,7 +40,15 @@ class Home extends Component {
         show: reponseComing.data.results,
         status:"Up Coming"
       })
-    }else{
+    }
+    else if(action === 'nowPlaying'){
+      const reponseNowPlaying = await API.fetchNowPlayingAPI();
+      this.setState({
+        show: reponseNowPlaying.data.results,
+        status:"Now playing"
+      })
+    }
+    else{
       const reposeRate = await API.fetchRatedAPI();
       this.setState({
         show: reposeRate.data.results,

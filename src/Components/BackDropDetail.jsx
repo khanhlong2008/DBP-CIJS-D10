@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class BackDropDetail extends Component {
   render() {
     const { backDrop } = this.props;
-    const IMG_URL = "https://image.tmdb.org/t/p/w500";
+    const IMG_URL = "https://image.tmdb.org/t/p/original";
     return (
       <>
         <div className="backDrop">
