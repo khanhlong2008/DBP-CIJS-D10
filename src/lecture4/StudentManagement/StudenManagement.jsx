@@ -26,7 +26,7 @@ export default class StudentManagement extends Component {
   render() {
     const {students} = this.state
     return (
-      <div className="container">
+      <div className="">
         <h1 className="text-center text-primary display-4">
          MANAGING STUDENTS
         </h1>
